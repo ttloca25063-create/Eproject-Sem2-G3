@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.ClassController" style="-fx-background-color: #F7FAFC; -fx-padding: 20;">
+    <Label text="Class Management (UC 09)" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1A365D;"/>
+
+    <!-- Search & Filter Bar -->
+    <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <TextField fx:id="txtSearchKeyword" promptText="Search Class Code or Name..." prefWidth="250.0"/>
+        <ComboBox fx:id="cbFilterStatus" promptText="Filter Status" prefWidth="130.0"/>
+        <Button text="Search Classes" onAction="#handleSearchClass" style="-fx-background-color: #3182CE; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        <Button text="View Enrolled Students" onAction="#handleViewStudents" style="-fx-background-color: #38A169; -fx-text-fill: white; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <!-- Main Content: Classes Table and Students List -->
+    <SplitPane dividerPositions="0.70" VBox.vgrow="ALWAYS">
+        <VBox spacing="5.0">
+            <TableView fx:id="tblClasses" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colClassID" text="ID" prefWidth="50.0"/>
+                    <TableColumn fx:id="colClassCode" text="Code" prefWidth="90.0"/>
+                    <TableColumn fx:id="colClassName" text="Class Name" prefWidth="170.0"/>
+                    <TableColumn fx:id="colCourseID" text="Course ID" prefWidth="80.0"/>
+                    <TableColumn fx:id="colTeacherID" text="Teacher ID" prefWidth="80.0"/>
+                    <TableColumn fx:id="colRoom" text="Room" prefWidth="80.0"/>
+                    <TableColumn fx:id="colSchedule" text="Schedule" prefWidth="140.0"/>
+                    <TableColumn fx:id="colMaxStudents" text="Max" prefWidth="50.0"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="80.0"/>
+                </columns>
+            </TableView>
+        </VBox>
+        <VBox spacing="5.0">
+            <Label text="Enrolled Students in Class:" style="-fx-font-weight: bold;"/>
+            <ListView fx:id="lvClassStudents" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </SplitPane>
+
+    <!-- Class Form Inputs -->
+    <VBox spacing="8.0" style="-fx-background-color: #EDF2F7; -fx-padding: 12; -fx-background-radius: 6;">
+        <Label text="Class Information Form" style="-fx-font-weight: bold; -fx-text-fill: #2D3748;"/>
+        <HBox spacing="10.0">
+            <TextField fx:id="txtClassCode" promptText="Class Code (e.g. CLS-01)" prefWidth="150.0"/>
+            <TextField fx:id="txtClassName" promptText="Class Name" prefWidth="220.0"/>
+            <TextField fx:id="txtCourseID" promptText="Course ID" prefWidth="90.0"/>
+            <TextField fx:id="txtTeacherID" promptText="Teacher ID" prefWidth="90.0"/>
+            <TextField fx:id="txtMaxStudents" promptText="Max Students" prefWidth="100.0"/>
+        </HBox>
+        <HBox spacing="10.0">
+            <DatePicker fx:id="dpStartDate" promptText="Start Date"/>
+            <DatePicker fx:id="dpEndDate" promptText="End Date"/>
+            <TextField fx:id="txtRoom" promptText="Room (e.g. 201)" prefWidth="110.0"/>
+            <TextField fx:id="txtSchedule" promptText="Schedule (e.g. Mon-Wed 18:00)" prefWidth="200.0"/>
+            <ComboBox fx:id="cbStatus" promptText="Status" prefWidth="110.0"/>
+        </HBox>
+        <HBox spacing="10.0">
+            <Button text="+ Create Class" onAction="#handleCreateClass" style="-fx-background-color: #3182CE; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Button text="✎ Save / Update Class" onAction="#handleEditClass" style="-fx-background-color: #4A5568; -fx-text-fill: white;"/>
+            <Button text="🗑 Delete Class" onAction="#handleDeleteClass" style="-fx-background-color: #E53E3E; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </VBox>
+</VBox>

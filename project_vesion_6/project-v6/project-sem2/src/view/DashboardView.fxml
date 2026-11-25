@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefWidth="1200.0" prefHeight="760.0"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.DashboardController">
+    <!-- Left Navigation Sidebar -->
+    <left>
+        <VBox spacing="10.0" prefWidth="270.0" style="-fx-background-color: #1A365D;">
+            <padding>
+                <Insets top="18.0" right="12.0" bottom="18.0" left="12.0"/>
+            </padding>
+
+            <!-- Brand Header -->
+            <VBox spacing="2.0" alignment="CENTER_LEFT" style="-fx-padding: 0 0 10 5;">
+                <Label text="CFL LANGUAGE CENTER" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px;"/>
+                <Label text="Certificate Generation System" style="-fx-text-fill: #90CDF4; -fx-font-size: 11px;"/>
+            </VBox>
+
+            <!-- User Info Badge -->
+            <VBox spacing="3.0" style="-fx-background-color: #2A4365; -fx-padding: 10; -fx-background-radius: 6;">
+                <Label fx:id="lblWelcome" text="👤 Welcome, User" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 13px;"/>
+                <Label fx:id="lblRole" text="Role: ADMIN" style="-fx-text-fill: #63B3ED; -fx-font-size: 11px; -fx-font-weight: bold;"/>
+            </VBox>
+
+            <!-- Navigation Menu (Scrollable) -->
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
+                        style="-fx-background: transparent; -fx-background-color: transparent; -fx-border-color: transparent;">
+                <VBox spacing="12.0">
+                    <!-- 1. Administration & Users -->
+                    <VBox fx:id="secAdmin" spacing="5.0">
+                        <Label text="ADMINISTRATION" style="-fx-text-fill: #CBD5E0; -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 4 2;"/>
+                        <Button fx:id="btnUsers" text="2. Users &amp; Permissions" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openUsers"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                        <Button fx:id="btnTeachers" text="3. Manage Teachers" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openTeachers"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                        <Button fx:id="btnStudents" text="4. Manage Students" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openStudents"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                        <Button fx:id="btnSchedules" text="5. Teaching Schedules" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openTeachingSchedules"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                    </VBox>
+
+                    <!-- 2. Academic & Course Management -->
+                    <VBox fx:id="secAcademic" spacing="5.0">
+                        <Label text="ACADEMIC &amp; COURSES" style="-fx-text-fill: #CBD5E0; -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 4 2;"/>
+                        <Button fx:id="btnCertTypes" text="6. Certificate Types" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openCertificateTypes"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                        <Button fx:id="btnCourses" text="7. Manage Courses" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openCourses"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                        <Button fx:id="btnSkills" text="8. Manage Skill Types" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openSkills"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                        <Button fx:id="btnClasses" text="9. Manage Classes" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openClasses"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                        <Button fx:id="btnPeriodicTests" text="10. Periodic Evaluations" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openPeriodicTests"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                    </VBox>
+
+                    <!-- 3. Examination & Certificates -->
+                    <VBox fx:id="secExam" spacing="5.0">
+                        <Label text="EXAMINATION &amp; CERTIFICATE" style="-fx-text-fill: #CBD5E0; -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 4 2;"/>
+                        <Button fx:id="btnExams" text="12. Manage Exams" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openExams"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                        <Button fx:id="btnExamRegs" text="11. Exam Registrations" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openExamRegistrations"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                        <Button fx:id="btnExamResults" text="13. Exam Results &amp; Marks" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openExamResults"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                        <Button fx:id="btnCertificates" text="14. Issue Certificate" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openCertificates"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                    </VBox>
+
+                    <!-- 4. Reports & Lookup -->
+                    <VBox spacing="5.0">
+                        <Label text="REPORTS &amp; LOOKUP" style="-fx-text-fill: #CBD5E0; -fx-font-size: 10px; -fx-font-weight: bold; -fx-padding: 4 2;"/>
+                        <Button fx:id="btnReports" text="18. Eligibility &amp; Reports" maxWidth="Infinity" alignment="BASELINE_LEFT" onAction="#openReports"
+                                style="-fx-background-color: #2B6CB0; -fx-text-fill: white; -fx-cursor: hand; -fx-font-size: 12px;"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+
+            <!-- Logout Button -->
+            <Button fx:id="btnLogout" text="🚪 Logout" maxWidth="Infinity" onAction="#handleLogout"
+                    style="-fx-background-color: #E53E3E; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-font-size: 13px; -fx-padding: 8 0;"/>
+        </VBox>
+    </left>
+
+    <!-- Center Content Workspace -->
+    <center>
+        <StackPane fx:id="pnlContentArea" style="-fx-background-color: #EDF2F7;">
+            <VBox alignment="CENTER" spacing="16.0" style="-fx-padding: 40;">
+                <Label text="Welcome to Certificate Generation System" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2D3748;"/>
+                <Label text="Select a module from the left menu to view and manage records." style="-fx-font-size: 14px; -fx-text-fill: #718096;"/>
+            </VBox>
+        </StackPane>
+    </center>
+</BorderPane>

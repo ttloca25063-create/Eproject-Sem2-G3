@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="12.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="controller.CourseManagementController">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+    <Label text="Course and Certificate Type Management" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="10.0">
+        <ComboBox fx:id="cboCertificateType" promptText="Certificate Type" prefWidth="170.0"/>
+        <TextField fx:id="txtCourseCode" promptText="Course Code (e.g. C-IELTS-70)" prefWidth="160.0"/>
+        <TextField fx:id="txtCourseName" promptText="Course Name" prefWidth="200.0"/>
+        <TextField fx:id="txtDuration" promptText="Duration (Hours)" prefWidth="120.0"/>
+        <TextField fx:id="txtTuitionFee" promptText="Tuition Fee" prefWidth="120.0"/>
+    </HBox>
+
+    <HBox spacing="10.0">
+        <DatePicker fx:id="dpStartDate" promptText="Start Date"/>
+        <DatePicker fx:id="dpEndDate" promptText="End Date"/>
+        <Button fx:id="btnAddCourse" text="Add Course" onAction="#handleAddCourse"/>
+        <Button fx:id="btnUpdateCourse" text="Update Selected" onAction="#handleUpdateCourse"/>
+        <Button fx:id="btnArchiveCourse" text="Archive Selected" onAction="#handleArchiveCourse"/>
+    </HBox>
+
+    <TableView fx:id="tblCourses" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colCourseID" text="ID" prefWidth="50.0"/>
+            <TableColumn fx:id="colCourseCode" text="Course Code" prefWidth="120.0"/>
+            <TableColumn fx:id="colCertType" text="Certificate Type" prefWidth="130.0"/>
+            <TableColumn fx:id="colCourseName" text="Course Name" prefWidth="210.0"/>
+            <TableColumn fx:id="colDuration" text="Duration" prefWidth="85.0"/>
+            <TableColumn fx:id="colFee" text="Tuition Fee" prefWidth="110.0"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="90.0"/>
+        </columns>
+    </TableView>
+</VBox>
